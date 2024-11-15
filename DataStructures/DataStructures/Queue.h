@@ -6,7 +6,7 @@
 typedef struct Queue
 {
 	// Complete the definition here
-	unsigned int* num;
+	unsigned int num;
 	struct Queue* next;
 
 } Queue;
