@@ -9,7 +9,7 @@ typedef struct Node
 
 void addToHead(Node* head, unsigned int value);
 
-void removeFromHead(Node* head);
+int removeFromHead(Node* head);
 
 void printList(Node* head);
 

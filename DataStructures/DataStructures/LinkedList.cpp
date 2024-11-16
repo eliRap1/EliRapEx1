@@ -1,5 +1,4 @@
 #include "LinkedList.h"
-
 void addToHead(Node* head, unsigned int value)
 {
 	Node* temp = head;
@@ -13,14 +12,13 @@ void addToHead(Node* head, unsigned int value)
 	temp->next = newNode;
 }
 
-void removeFromHead(Node* head)
+int removeFromHead(Node* head)
 {
+	int isRemoved = 0;
 	Node* temp = nullptr;
-	if (head != nullptr && head->next == nullptr)
+	if (head == nullptr || head->next == nullptr)
 	{
-		delete head;
-		head = nullptr;
-		return;
+		isRemoved = -1;
 	}
 	else
 	{
@@ -32,14 +30,23 @@ void removeFromHead(Node* head)
 		delete temp->next;
 		temp->next = nullptr;
 	}
+	return isRemoved;
 }
 
 void printList(Node* head)
 {
-	Node* temp = head;
-	while (temp->next != nullptr)
+	Node* temp = nullptr;
+	if (head == nullptr)
 	{
-		std::cout << temp->data<< "\n" << std::endl;
-		temp = temp->next;
+		std::cout << "List is empty." << std::endl;
+	}
+	else
+	{
+		temp = head;
+		while (temp->next != nullptr)
+		{
+			std::cout << temp->data << "\n" << std::endl;
+			temp = temp->next;
+		}
 	}
 }

@@ -7,6 +7,9 @@
 typedef struct Stack
 {
 	// Complete Definition here
+	//unsigned int element;
+	//Stack* next;
+	Node* linked;
 } Stack;
 
 void push(Stack* s, unsigned int element);
@@ -18,4 +21,5 @@ void cleanStack(Stack* s);
 bool isEmpty(Stack* s);
 bool isFull(Stack* s);
 
+void printStack(Stack* s);
 #endif // STACK_H
