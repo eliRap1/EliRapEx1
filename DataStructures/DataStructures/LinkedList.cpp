@@ -14,11 +14,11 @@ void addToHead(Node* head, unsigned int value)
 
 int removeFromHead(Node* head)
 {
-	int isRemoved = 0;
+	int theElement = 0;
 	Node* temp = nullptr;
 	if (head == nullptr || head->next == nullptr)
 	{
-		isRemoved = -1;
+		theElement = -1;
 	}
 	else
 	{
@@ -27,10 +27,11 @@ int removeFromHead(Node* head)
 		{
 			temp = temp->next;
 		}
+		theElement = temp->next->data;
 		delete temp->next;
 		temp->next = nullptr;
 	}
-	return isRemoved;
+	return theElement;
 }
 
 void printList(Node* head)
