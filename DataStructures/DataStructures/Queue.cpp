@@ -2,80 +2,54 @@
 
 void initQueue(Queue* q, unsigned int size)
 {
-	q->num = size;
-	q->next = nullptr;
+	q->size = size;
+	q->arr = new unsigned int[size];
+	q->alrIn = 0;
 }
 
 void cleanQueue(Queue* q)
 {
-	Queue* current = q->next;
-	Queue* temp = current;
-	while (current != nullptr)
-	{
-		temp = current;
-		current = current->next;
-		delete(temp);
-	}
-	q->next = nullptr;
+	delete q->arr;
 }
 
 void enqueue(Queue* q, unsigned int newValue)
 {
-	Queue* newNode = nullptr;
-	if (isFull(q)) 
-	{
-		std::cout << "Queue is full"  << std::endl;
-	}
-	else
-	{
-		newNode = new Queue();
-		newNode->num = newValue;
-		newNode->next = nullptr;
-		Queue* temp = q;
-		while (temp->next != nullptr)
-		{
-			temp = temp->next;
-		}
-		temp->next = newNode;
-	}
+	q->arr[q->alrIn] = newValue;
+	q->alrIn++;
 }
 
 bool isFull(Queue* s)
 {
-	bool isFull = false;
-	int size = 0;
-	Queue* temp = s->next;
-	while (temp != nullptr) 
-	{
-		size++;
-		temp = temp->next;
-	}
-	if (size >= s->num)
-	{
-		isFull = true;
-	}
-	return isFull;
+	return s->alrIn >= s->size;
 }
 
 int dequeue(Queue* q) 
 {
 	int value = -1;
-	Queue* frontNode = nullptr;
 	if (isEmpty(q)) 
 	{
 		value = -1; 
 	}
 	else
 	{
-		frontNode = q->next;
-		value = frontNode->num;
-		q->next = frontNode->next;
-		delete frontNode;
+		value = moveLeftArr(q);
+	}
+	return value;
+}
+
+int moveLeftArr(Queue* q)
+{
+	int i = 0;
+	int value = q->arr[0];
+	q->alrIn--;
+	for (i = 0; i < q->alrIn; i++)
+	{
+		q->arr[i] = q->arr[i + 1];
 	}
 	return value;
 }
 
 bool isEmpty(Queue* q) 
 {
-	return q->next == nullptr;
+	return q->alrIn == 0;
 }
