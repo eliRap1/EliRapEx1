@@ -3,11 +3,11 @@
 #include <iostream>
 typedef struct Node
 {
-    int data;
+    unsigned int data;
     Node* next;
 }Node;
 
-void addToHead(Node* head, int value);
+void addToHead(Node* head, unsigned int value);
 
 void removeFromHead(Node* head);
 
