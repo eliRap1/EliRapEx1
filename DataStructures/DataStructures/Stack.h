@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
-
-//#include "LinkedList.h"
+#include <iostream>
+#include "LinkedList.h"
 
 /* a positive-integer value stack, with no size limit */
 typedef struct Stack
