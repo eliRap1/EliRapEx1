@@ -1,4 +1,9 @@
 #include "LinkedList.h"
+
+/*
+this func adds to the end of the linked list
+input: struct node and the value to add to the struct output:none
+*/
 void addToHead(Node* head, unsigned int value)
 {
 	Node* temp = head;
@@ -12,6 +17,11 @@ void addToHead(Node* head, unsigned int value)
 	temp->next = newNode;
 }
 
+/*
+this func removes from the end of the linked list
+input: struct node
+output:the value we removed
+*/
 int removeFromHead(Node* head)
 {
 	int theElement = 0;
@@ -33,7 +43,11 @@ int removeFromHead(Node* head)
 	}
 	return theElement;
 }
-
+/*
+this func prints all the list
+input: struct node
+output:none
+*/
 void printList(Node* head)
 {
 	Node* temp = nullptr;
